@@ -6,19 +6,15 @@ import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
-
+import useInitilState from '../hooks/useInitialState';
 import '../assets/styles/App.scss';
 
+const API = 'http://localhost:3000/initialState';
+
 const App = () => {
-  const [videos, setVideos] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:3000/initialState')
-      .then((result) => result.json())
-      .then((data) => setVideos(data));
-  }, []);
-
-  const { mylist, trends, originals } = videos;
+  const initilState = useInitilState(API);
+  const { mylist, trends, originals } = initilState;
 
   return (
     <div className='App'>
@@ -28,7 +24,7 @@ const App = () => {
       {mylist !== undefined && mylist.length > 0 && (
         <Categories title='Mi Lista'>
           <Carousel>
-            <CarouselItem />
+            {mylist !== undefined && mylist.map((item) => <CarouselItem key={item.id} {...item} />)}
           </Carousel>
         </Categories>
       )}
@@ -41,10 +37,7 @@ const App = () => {
 
       <Categories title='Originales de Plazi video'>
         <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-
-          <CarouselItem />
+          {originals !== undefined && originals.map((item) => <CarouselItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
 
