@@ -11,34 +11,31 @@ import '../assets/styles/App.scss';
 
 const App = () => {
   const [videos, setVideos] = useState([]);
+
   useEffect(() => {
     fetch('http://localhost:3000/initialState')
       .then((result) => result.json())
-      .then((data) => setVideos(data))
-      .catch((err) => console.error(err));
+      .then((data) => setVideos(data));
   }, []);
-  
-  console.log(videos);
+
+  const { mylist, trends, originals } = videos;
 
   return (
     <div className='App'>
       <Header />
       <Search />
 
-      <Categories title='Mi Lista'>
-        <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-        </Carousel>
-      </Categories>
+      {mylist !== undefined && mylist.length > 0 && (
+        <Categories title='Mi Lista'>
+          <Carousel>
+            <CarouselItem />
+          </Carousel>
+        </Categories>
+      )}
 
       <Categories title='Tendencias'>
         <Carousel>
-          <CarouselItem />
-
-          <CarouselItem />
+          {trends !== undefined && trends.map((item) => <CarouselItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
 
