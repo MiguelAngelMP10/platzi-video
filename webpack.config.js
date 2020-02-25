@@ -36,16 +36,17 @@ module.exports = {
     },
     {
       test: /\.(png|gif|jpg)$/,
-      use: [
-        {
-          loader: 'file-loader',
-          options: {
-            name: 'assets/[hash].[ext]',
-          },
+      use: [{
+        loader: 'file-loader',
+        options: {
+          name: 'assets/[hash].[ext]',
         },
-      ],
+      }],
     },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebPackPlugin({
