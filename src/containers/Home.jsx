@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
+
 import Search from '../components/Search';
 
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
-import Footer from '../components/Footer';
 import useInitilState from '../hooks/useInitialState';
 import '../assets/styles/App.scss';
 
@@ -17,8 +16,7 @@ const Home = () => {
   const { mylist, trends, originals } = initilState;
 
   return (
-    <div className='App'>
-      <Header />
+    <>
       <Search />
 
       {mylist !== undefined && mylist.length > 0 && (
@@ -41,8 +39,7 @@ const Home = () => {
         </Carousel>
       </Categories>
 
-      <Footer />
-    </div>
+    </>
   );
 };
 
