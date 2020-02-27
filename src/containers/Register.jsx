@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/button-has-type */
 import React from 'react';
 import '../assets/styles/components/Register.scss';
 
