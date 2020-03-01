@@ -14,6 +14,13 @@ const reducer = (state, action) => {
       }
     }
     // eslint-disable-next-line no-fallthrough
+    case 'DELETE_FAVORITE': {
+      return {
+        ...state,
+        myList: state.myList.filter((items) => items.id !== action.payload),
+      };
+    }
+    // eslint-disable-next-line no-fallthrough
     default:
       return state;
   }

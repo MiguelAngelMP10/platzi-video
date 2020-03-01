@@ -6,4 +6,11 @@ const setFavorite = (payload) => {
     payload,
   };
 };
-export { setFavorite };
+
+const deleteFavorite = (payload) => {
+  return {
+    type: 'DELETE_FAVORITE',
+    payload,
+  };
+};
+export { setFavorite, deleteFavorite };
