@@ -20,6 +20,12 @@ const reducer = (state, action) => {
         myList: state.myList.filter((items) => items.id !== action.payload),
       };
     }
+    case 'LOGIN_REQUEST': {
+      return {
+        ...state,
+        user: action.payload,
+      };
+    }
     // eslint-disable-next-line no-fallthrough
     default:
       return state;

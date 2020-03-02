@@ -13,4 +13,12 @@ const deleteFavorite = (payload) => {
     payload,
   };
 };
-export { setFavorite, deleteFavorite };
+
+const loginRequest = (payload) => {
+  return {
+    type: 'LOGIN_REQUEST',
+    payload,
+  };
+};
+
+export { setFavorite, deleteFavorite, loginRequest };
