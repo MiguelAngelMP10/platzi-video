@@ -21,4 +21,11 @@ const loginRequest = (payload) => {
   };
 };
 
-export { setFavorite, deleteFavorite, loginRequest };
+const logoutRequest = (payload) => {
+  return {
+    type: 'LOGOUT_REQUEST',
+    payload,
+  };
+};
+
+export { setFavorite, deleteFavorite, loginRequest, logoutRequest };
