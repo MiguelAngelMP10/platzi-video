@@ -9,6 +9,10 @@
     top: 0px;
     width: 100%;
   }
+
+  .isLogin, .isRegister {
+    background-color: #21c08b;
+  }
   
   .header__img {
     margin-left: 30px;
@@ -55,4 +59,6 @@
   .header__menu--profile img {
     margin-right: 8px;
     width: 40px;
+    border-radius: 100%;
+    object-fit: cover;
   }
