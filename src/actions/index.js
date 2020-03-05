@@ -35,10 +35,18 @@ const registerRequest = (payload) => {
   };
 };
 
+const getVideoSource = (payload) => {
+  return {
+    type: 'GET_VIDEO_SOURCE',
+    payload,
+  };
+};
+
 export {
   setFavorite,
   deleteFavorite,
   loginRequest,
   logoutRequest,
   registerRequest,
+  getVideoSource,
 };

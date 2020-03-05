@@ -38,6 +38,15 @@ const reducer = (state, action) => {
         user: action.payload,
       };
     }
+
+    case 'GET_VIDEO_SOURCE': {
+      return {
+        ...state,
+        playing: state.trends.concat(state.originals).find((item) => {
+          return item.id !== undefined && item.id === Number(action.payload);
+        }) || [],
+      };
+    }
     // eslint-disable-next-line no-fallthrough
     default:
       return state;
