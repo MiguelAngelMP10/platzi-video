@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { registerRequest } from '../actions';
 import '../assets/styles/components/Register.scss';
 
-const Register = () => {
+const Register = (props) => {
   const [form, setValues] = useState({
     email: '',
     name: '',
@@ -20,7 +22,8 @@ const Register = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(form);
+    props.registerRequest(form);
+    props.history.push('/');
   };
 
   return (
@@ -61,4 +64,8 @@ const Register = () => {
   );
 };
 
-export default Register;
+const mapDispatchToProps = {
+  registerRequest,
+};
+
+export default connect(null, mapDispatchToProps)(Register);

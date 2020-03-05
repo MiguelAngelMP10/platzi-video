@@ -28,4 +28,17 @@ const logoutRequest = (payload) => {
   };
 };
 
-export { setFavorite, deleteFavorite, loginRequest, logoutRequest };
+const registerRequest = (payload) => {
+  return {
+    type: 'REGISTER_REQUEST',
+    payload,
+  };
+};
+
+export {
+  setFavorite,
+  deleteFavorite,
+  loginRequest,
+  logoutRequest,
+  registerRequest,
+};
