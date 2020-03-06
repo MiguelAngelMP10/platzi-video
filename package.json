@@ -6,13 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development"
+    "start": "webpack-dev-server --open --mode development",
+    "start:dev": "node src/server/index"
   },
   "keywords": [],
   "author": "Miguel Angel Muñoz Pozos",
   "license": "MIT",
   "dependencies": {
+    "@babel/register": "^7.8.6",
     "classnames": "^2.2.6",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "md5": "^2.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
